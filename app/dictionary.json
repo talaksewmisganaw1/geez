@@ -1,0 +1,17 @@
+{
+  "አበባ": { "definition": "አንድ ፍራንሽ አበባ.", "image": "https://example.com/images/አበባ.png" },
+  "መጽሐፍ": { "definition": "ጽሁፍ ያለው መጽሐፍ.", "image": "https://example.com/images/መጽሐፍ.png" },
+  "ውሻ": { "definition": "ታዋቂ ውሻ ወይም ድመት እንስሳ.", "image": "https://example.com/images/ውሻ.png" },
+  "ድመት": { "definition": "ታዋቂ ድመት እንስሳ.", "image": "https://example.com/images/ድመት.png" },
+  "አልጋ": { "definition": "ለመተኛት እቃ.", "image": "https://example.com/images/አልጋ.png" },
+  "ቤት": { "definition": "ሰዎች ለመኖር የሚገኘው ቤት.", "image": "https://example.com/images/ቤት.png" },
+  "መኪና": { "definition": "ለመንገድ የሚጠቀም ተሽከርካሪ.", "image": "https://example.com/images/መኪና.png" },
+  "ሰዓት": { "definition": "ጊዜ ለመመለከት የሚጠቀም መሣሪያ.", "image": "https://example.com/images/ሰዓት.png" },
+  "መስኮት": { "definition": "ቤት ውስጥ ብርሃን የሚገባበት መንገድ.", "image": "https://example.com/images/መስኮት.png" },
+  "በረዶ": { "definition": "ከሰማይ የሚወርደው ቀዝቃዛ ውሃ.", "image": "https://example.com/images/በረዶ.png" },
+  "ገንዘብ": { "definition": "ገንዘብ ለግብይት የሚጠቀም.", "image": "https://example.com/images/ገንዘብ.png" },
+  "ውሃ": { "definition": "ሕይወት ያስፈልጋል ውሃ.", "image": "https://example.com/images/ውሃ.png" },
+  "ሽንኩርት": { "definition": "አቀማመጥ ለምግብ የሚጠቀም ቅመም.", "image": "https://example.com/images/ሽንኩርት.png" },
+  "እንቁላል": { "definition": "የወፍ ዘር እንቁላል.", "image": "https://example.com/images/እንቁላል.png" },
+  "ተራራ": { "definition": "ትልቅ ተፈጥሮ ከፍተኛ መሬት.", "image": "https://example.com/images/ተራራ.png" }
+}
