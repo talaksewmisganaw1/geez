@@ -4,8 +4,8 @@ import { TouchableOpacity, Text, TextInput, ScrollView } from 'react-native';
 import "../global.css"
 import { SafeAreaView } from 'react-native-safe-area-context'
 import dictionary from "./dictionary.json"
-import { Link } from 'expo-router'
-import meaning from './meaning';
+import { router, Link } from 'expo-router'
+import Meaning from './meaning';
 
 
 export default function App() {
@@ -16,7 +16,7 @@ export default function App() {
     ? Object.keys(dictionary).filter((word) =>
         word.toLowerCase().startsWith(query.toLowerCase())
       )
-    : Object.keys(dictionary).sort((a, b) => a.localeCompare(b, 'am'));
+    : Object.keys(dictionary);
 ;
 
   return (
@@ -33,7 +33,7 @@ export default function App() {
       <ScrollView>
         {filteredWords.length > 0 ? (
           filteredWords.map((word) => (
-            <TouchableOpacity onPress={() => router.push({pathname: '/meaning', params: {title: 'you', definition: 'asdjfhaklsfha'}})} key={word} className="mb-4 p-3 bg-white rounded shadow">
+            <TouchableOpacity onPress={() => router.push({pathname: '/meaning', params: {title: word, definition: dictionary[word].ትርጉም, definition2:dictionary[word].ትርጉም2, image: dictionary[word].ምስል}})} key={word} className="mb-4 p-3 bg-white rounded shadow">
               <Text className="text-lg font-semibold">{word}</Text>
             </TouchableOpacity>
           ))
