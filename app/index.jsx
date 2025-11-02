@@ -6,10 +6,17 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import dictionary from "./dictionary.json"
 import { router, Link } from 'expo-router'
 import Meaning from './meaning';
+import { useFonts } from 'expo-font';
 
 
 export default function App() {
   const [query, setQuery] = useState('');
+  
+  const [fontsLoaded] = useFonts({
+    NotoAmharic: require('../assets/fonts/Menbere-VariableFont_wght.ttf'),
+  });
+
+  if (!fontsLoaded) return null;
 
   // Get filtered words based on input, or all sorted alphabetically if input is empty
   const filteredWords = query
@@ -34,7 +41,7 @@ export default function App() {
         {filteredWords.length > 0 ? (
           filteredWords.map((word) => (
             <TouchableOpacity onPress={() => router.push({pathname: '/meaning', params: {title: word, definition: dictionary[word].ትርጉም, definition2:dictionary[word].ትርጉም2, image: dictionary[word].ምስል}})} key={word} className="mb-4 p-3 bg-white rounded shadow">
-              <Text className="text-lg font-semibold">{word}</Text>
+              <Text style={{ fontFamily: 'NotoAmharic'}} className="text-base font-semibold">{word}</Text>
             </TouchableOpacity>
           ))
         ) : (
