@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { TouchableOpacity, Text, TextInput, ScrollView } from 'react-native';
+import { TouchableOpacity, Text, TextInput, ScrollView, View, StatusBar} from 'react-native';
 import "../global.css"
 import { SafeAreaView } from 'react-native-safe-area-context'
 import dictionary from "./dictionary.json"
@@ -14,6 +14,7 @@ export default function App() {
   
   const [fontsLoaded] = useFonts({
     NotoAmharic: require('../assets/fonts/Menbere-VariableFont_wght.ttf'),
+    semiBold: require('../assets/fonts/Menbere-SemiBold.ttf')
   });
 
   if (!fontsLoaded) return null;
@@ -27,27 +28,29 @@ export default function App() {
 ;
 
   return (
-    <SafeAreaView className="flex-1 p-5 bg-gray-100">
-      <Text className="text-2xl font-bold mb-5 text-center">Dictionary</Text>
+    <>
+      <SafeAreaView className="flex-1 p-5 bg-gray-100">
+        <Text className="text-2xl font-bold mb-5 text-center">Dictionary</Text>
 
-      <TextInput
-        className="border border-gray-400 rounded px-3 py-2 w-full mb-5 bg-white text-xl"
-        placeholder="Type a letter or word"
-        value={query}
-        onChangeText={setQuery}
-      />
+        <TextInput
+          className="border border-gray-400 rounded px-3 py-2 w-full mb-5 bg-white text-xl"
+          placeholder="ፊደል ወይም ቃል ያስገቡ..."
+          value={query}
+          onChangeText={setQuery}
+        />
 
-      <ScrollView>
-        {filteredWords.length > 0 ? (
-          filteredWords.map((word) => (
-            <TouchableOpacity onPress={() => router.push({pathname: '/meaning', params: {title: word, definition: dictionary[word].ትርጉም, definition2:dictionary[word].ትርጉም2, image: dictionary[word].ምስል}})} key={word} className="mb-4 p-3 bg-white rounded shadow">
-              <Text style={{ fontFamily: 'NotoAmharic'}} className="text-base font-semibold">{word}</Text>
-            </TouchableOpacity>
-          ))
-        ) : (
-          <Text className="text-center text-gray-500">No words found</Text>
-        )}
-      </ScrollView>
-    </SafeAreaView>
+        <ScrollView>
+          {filteredWords.length > 0 ? (
+            filteredWords.map((word) => (
+              <TouchableOpacity onPress={() => router.push({pathname: '/meaning', params: {title: word, definition: dictionary[word].ትርጉም, definition2:dictionary[word].ትርጉም2, image: dictionary[word].ምስል}})} key={word} className="mb-4 p-3 bg-white rounded shadow">
+                <Text style={{ fontFamily: 'NotoAmharic'}} className="text-base font-semibold">{word}</Text>
+              </TouchableOpacity>
+            ))
+          ) : (
+            <Text className="text-center text-gray-500">የተገኘ ቃል የለም</Text>
+          )}
+        </ScrollView>
+      </SafeAreaView>
+    </>
   );
 }
