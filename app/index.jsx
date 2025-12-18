@@ -11,6 +11,7 @@ import { useFonts } from 'expo-font';
 
 export default function App() {
   const [query, setQuery] = useState('');
+  const [focused, setFocused] = useState(false);
   
   const [fontsLoaded] = useFonts({
     NotoAmharic: require('../assets/fonts/Menbere-VariableFont_wght.ttf'),
@@ -29,20 +30,28 @@ export default function App() {
 
   return (
     <>
-      <SafeAreaView className="flex-1 p-5 bg-gray-100">
-        <Text className="text-2xl font-bold mb-5 text-center">Dictionary</Text>
+      <StatusBar className="bg-gray-100" barStyle="dark-content" translucent={false} />
+      <SafeAreaView className="flex-1 p-4 pt-0 pb-0 bg-gray-100">
+        <View className="text-2xl font-bold mb-5 text-center">
+          <Text style={{ fontFamily: 'semiBold'}} className="text-xl text-center">የአለቃ ኪዳነወልድ ክፍሌ</Text>
+          <Text style={{ fontFamily: 'semiBold'}} className="text-xl text-center">የግእዝ አማርኛ መዝገበ-ቃላት</Text>
+        </View>
 
         <TextInput
-          className="border border-gray-400 rounded px-3 py-2 w-full mb-5 bg-white text-xl"
+          style={{ fontFamily: 'NotoAmharic', fontSize: 14}}
+          className={`border border-gray-400 px-3 py-2 w-full mb-5 bg-white text-xl rounded-lg ${focused ? 'border-gray-400' : 'border-gray-300'}`}
           placeholder="ፊደል ወይም ቃል ያስገቡ..."
           value={query}
           onChangeText={setQuery}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
         />
+        
 
         <ScrollView>
           {filteredWords.length > 0 ? (
             filteredWords.map((word) => (
-              <TouchableOpacity onPress={() => router.push({pathname: '/meaning', params: {title: word, definition: dictionary[word].ትርጉም, definition2:dictionary[word].ትርጉም2, image: dictionary[word].ምስል}})} key={word} className="mb-4 p-3 bg-white rounded shadow">
+              <TouchableOpacity onPress={() => router.push({pathname: '/meaning', params: {title: word}})} key={word} className="mb-3 p-3 bg-white rounded shadow">
                 <Text style={{ fontFamily: 'NotoAmharic'}} className="text-base font-semibold">{word}</Text>
               </TouchableOpacity>
             ))
