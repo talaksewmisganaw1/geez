@@ -1,7 +1,7 @@
 {
   "expo": {
     "scheme": "Geez",
-    "name": "geez",
+    "name": "የአለቃ ኪዳነወልድ መዝገበ-ቃላት",
     "slug": "geez",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,7 +21,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.talaksew.geez"
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -29,6 +30,12 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "feb511f3-c839-4e73-ada5-90a5991fb142"
+      }
+    }
   }
 }
