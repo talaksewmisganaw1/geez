@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { TouchableOpacity, Text, TextInput, ScrollView, View, StatusBar } from 'react-native';
-import "../global.css";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import dictionary from "./dictionary.json";
 import { router } from 'expo-router';
@@ -34,7 +33,7 @@ export default function App() {
   return (
     <>
       <StatusBar backgroundColor="#f3f4f6" barStyle="dark-content" />
-      <SafeAreaView className="flex-1 p-4 bg-gray-100">
+      <SafeAreaView className="flex-1 px-4 bg-gray-100">
         <View className="mb-5">
           <Text style={{ fontFamily: 'semiBold' }} className="text-xl text-center">
             የአለቃ ኪዳነወልድ ክፍሌ
@@ -48,6 +47,7 @@ export default function App() {
           style={{ fontFamily: 'NotoAmharic', fontSize: 14 }}
           className="border px-3 py-2 mb-5 bg-white rounded-lg"
           placeholder="ፊደል ወይም ቃል ያስገቡ..."
+          placeholderTextColor="#6b7280"
           value={query}
           onChangeText={setQuery}
           onFocus={() => setFocused(true)}
@@ -58,7 +58,9 @@ export default function App() {
           {filteredWords.map(word => (
             <TouchableOpacity
               key={word}
-              onPress={() => router.push({ pathname: '/meaning', params: { title: word } })}
+              onPress={() => {
+                router.push({ pathname: '/meaning', params: { title: word} })
+              }}
               className="mb-3 p-3 bg-white rounded shadow"
             >
               <Text style={{ fontFamily: 'NotoAmharic' }}>{word}</Text>

@@ -11,7 +11,6 @@ import dictionary from "./dictionary.json"
 const Meaning = () => {
   const route = useRoute();
   const { title } = route.params || {};
-  
   const images = {
     hayel: require('../assets/hayel.png'),
     hepopa: require('../assets/hepopa.png'),
@@ -32,14 +31,8 @@ const Meaning = () => {
   return (
     <>
       <StatusBar className="bg-gray-100" barStyle="dark-content" translucent={false} />
-      <SafeAreaView className="bg-gray-100 h-full">
-        <Link href={'/'}>
-            <View className="h-16 w-full py-2 pl-4 flex-row items-center">
-              <View className="h-full flex justify-center"><Ionicons name="arrow-back" size={30}/></View>
-              <View className="h-full flex justify-center"><Text className="text-2xl font-semibold ml-7">ትርጉም</Text></View>    
-            </View>
-        </Link>
-        <ScrollView className=' bg-white h-full p-5'>
+      <SafeAreaView className="bg-gray-100 h-full" edges={['left', 'right', 'bottom']}>
+        <ScrollView className=' bg-white h-full p-5' contentContainerStyle={{ paddingBottom: 60 }}>
           <Text style={{ fontFamily: 'boldFont', fontWeight:'600', fontSize: 25 }} className="pb-2">{title}</Text>
             {
               dictionary[title]?.map((item, i) => (
