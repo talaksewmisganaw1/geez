@@ -12,8 +12,7 @@ export default function App() {
   const [focused, setFocused] = useState(false);
 
   const [fontsLoaded] = useFonts({
-    NotoAmharic: require('../assets/fonts/Menbere-VariableFont_wght.ttf'),
-    semiBold: require('../assets/fonts/Menbere-SemiBold.ttf')
+    talew: require('../assets/fonts/talew.ttf'),
   });
 
   useEffect(() => {
@@ -21,7 +20,7 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  if (!fontsLoaded) return null;
+  // if (!fontsLoaded) return null;
   if (showSplash) return <SplashScreen />;
 
   const filteredWords = query
@@ -35,17 +34,17 @@ export default function App() {
       <StatusBar backgroundColor="#f3f4f6" barStyle="dark-content" />
       <SafeAreaView className="flex-1 px-4 bg-gray-100">
         <View className="mb-5">
-          <Text style={{ fontFamily: 'semiBold' }} className="text-xl text-center">
+          <Text style={{fontFamily: 'talew', fontSize:22 }} className=" text-center mt-1">
             የአለቃ ኪዳነወልድ ክፍሌ
           </Text>
-          <Text style={{ fontFamily: 'semiBold' }} className="text-xl text-center">
-            የግእዝ አማርኛ መዝገበ-ቃላት
+          <Text style={{fontFamily: 'talew', fontSize:22 }} className="text-center">
+            የግእዝ-አማርኛ መዝገበ-ቃላት
           </Text>
         </View>
 
         <TextInput
-          style={{ fontFamily: 'NotoAmharic', fontSize: 14 }}
-          className="border px-3 py-2 mb-5 bg-white rounded-lg"
+          style={{ fontSize: 18.5, fontFamily: 'talew' }}
+          className="border px-4 py-[.4rem] mb-5 bg-white rounded-lg"
           placeholder="ፊደል ወይም ቃል ያስገቡ..."
           placeholderTextColor="#6b7280"
           value={query}
@@ -61,9 +60,9 @@ export default function App() {
               onPress={() => {
                 router.push({ pathname: '/meaning', params: { title: word} })
               }}
-              className="mb-3 p-3 bg-white rounded shadow"
+              className="mb-3 px-3 py-2 bg-white rounded shadow"
             >
-              <Text style={{ fontFamily: 'NotoAmharic' }}>{word}</Text>
+              <Text className="text-gray-700" style={{fontFamily: 'talew', fontWeight: 600, fontSize: 19}}>{word}</Text>
             </TouchableOpacity>
           ))}
         </ScrollView>
